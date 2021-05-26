@@ -1,0 +1,363 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+:root {
+  --main-color: #040810;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--main-color);
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+*:focus {
+  outline: 2px dotted #677eff;
+}
+
+/* ___Header___ */
+.header {
+  text-align: center;
+  border-bottom: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(
+    to left,
+    var(--main-color),
+    #a2abb3,
+    var(--main-color)
+  );
+}
+
+.header__title {
+  line-height: 75px;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* ___Main___ */
+.main {
+  min-height: calc(100vh - 123px);
+  padding: 60px 0;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 310px;
+  height: 40px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+
+.btn {
+  width: 150px;
+  height: 40px;
+  padding: 0 10px;
+  background-color: #162d58;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background-color: #284e96;
+}
+
+.btn:active {
+  background-color: #0e1e3b;
+}
+
+.btn:focus {
+  box-shadow: 0px 3px 0px #7185f5;
+}
+
+.btn-active {
+  background-color: #3f51b5;
+}
+
+.btn-active:hover {
+  background-color: #677eff;
+}
+
+.btn-active:active {
+  background-color: #334191;
+}
+
+/* ___Piano REGION___ */
+.piano {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto 60px;
+}
+
+.piano__key {
+  position: relative;
+  width: 80px;
+  height: 270px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 4px solid var(--main-color);
+  border-radius: 0px 0px 15px 15px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.piano__key:hover {
+  background-color: #fff;
+}
+
+.piano__sharp {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 454px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.piano__key.sharp {
+  width: 54px;
+  height: 170px;
+  background-color: var(--main-color);
+  border: 0;
+  border-radius: 0px 0px 12px 12px;
+  pointer-events: auto;
+  transform-origin: center top;
+}
+
+.piano__key.sharp:hover {
+  background-color: #060b17;
+}
+
+.piano__key.piano__key_active,
+.piano__key.sharp.piano__key_active {
+  transform: scale(0.95);
+}
+
+.piano__key.none {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  pointer-events: none;
+}
+
+.piano__key::before,
+.piano__key::after {
+  content: attr(data-note);
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  font-size: 26px;
+  line-height: 40px;
+  text-align: center;
+  color: #a2abb3;
+  bottom: -45px;
+  left: 20px;
+  transition: 0.2s;
+  pointer-events: none;
+}
+
+.piano__key:after {
+  display: none;
+  content: attr(data-letter);
+}
+
+.piano__key:hover::before,
+.piano__key:hover::after {
+  color: #fff;
+}
+
+.piano__key.sharp::before,
+.piano__key.sharp::after {
+  bottom: 175px;
+  left: 7px;
+}
+
+.piano__key.letter::before {
+  display: none;
+}
+.piano__key.letter::after {
+  display: block;
+}
+.piano__key-letter::before {
+  content: attr(data-letter);
+}
+
+.piano__key_active::after,
+.piano__key_active::before {
+  color: #3f51b5 !important;
+}
+
+/* ___Fullscreen Region___ */
+.fullscreen {
+  position: fixed;
+  top: 120px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+  transition: 0.2s;
+}
+
+.fullscreen__button {
+  width: 100%;
+  height: 100%;
+  background-color: #162d58;
+  border: 0;
+  transition: 0.2s;
+  cursor: pointer;
+  background-image: url('assets/images/fullscreen-open.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.fullscreen__button:hover {
+  background-color: #284e96;
+}
+
+.fullscreen__button:active {
+  background-color: #0e1e3b;
+}
+
+:fullscreen .fullscreen__button {
+  background-image: url('assets/images/fullscreen-exit.svg');
+}
+
+/* ___Footer___ */
+.footer {
+  border-top: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, var(--main-color), #a2abb3, var(--main-color));
+}
+
+.footer__container {
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.footer__github {
+  display: block;
+  width: 120px;
+  height: 45px;
+  padding-left: 45px;
+  background-image: url('assets/images/github.svg');
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  line-height: 45px;
+  color: #cbd5de;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.footer__github:hover {
+  color: #fff;
+}
+
+.footer__rss {
+  display: block;
+  position: relative;
+  width: 86px;
+  height: 32px;
+  background-image: url('assets/images/rss.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-right: 111px;
+}
+
+.footer__rss-year {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 21px;
+  letter-spacing: -2px;
+  color: #cbd5de;
+  line-height: 0.9;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.footer__rss:hover .footer__rss-year {
+  right: -5px;
+  letter-spacing: 0;
+}
+
+@media (max-width: 768px) {
+  .fullscreen {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding-top: 40px;
+  }
+
+  .piano {
+    width: 310px;
+    height: 160px;
+  }
+
+  .piano__key {
+    width: 44px;
+    height: 160px;
+    border-radius: 0px 0px 8px 8px;
+    border: 2px solid var(--main-color);
+  }
+
+  .piano__sharp {
+    width: 258px;
+  }
+
+  .piano__key.sharp {
+    width: 36px;
+    height: 100px;
+    border-radius: 0px 0px 6px 6px;
+  }
+
+  .piano__key::before,
+  .piano__key::after {
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    bottom: -35px;
+    left: 7px;
+    font-size: 22px;
+  }
+
+  .piano__key.sharp::before,
+  .piano__key.sharp::after {
+    bottom: 115px;
+    left: 3px;
+  }
+
+  .buttons-container {
+    width: 244px;
+  }
+
+  .btn {
+    width: 120px;
+    height: 40px;
+  }
+}

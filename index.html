@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual piano</title>
+    <link rel="shortcut icon" href="piano.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">Virtual Piano</h1>
+    </header>
+    <main class="main">
+      <div class="buttons-container">
+        <button class="btn btn__notes btn-active">Notes</button>
+        <button class="btn btn__letters">Letters</button>
+      </div>
+      <div class="piano">
+        <div class="piano__key" data-note="c" data-letter="D"></div>
+        <div class="piano__key" data-note="d" data-letter="F"></div>
+        <div class="piano__key" data-note="e" data-letter="G"></div>
+        <div class="piano__key" data-note="f" data-letter="H"></div>
+        <div class="piano__key" data-note="g" data-letter="J"></div>
+        <div class="piano__key" data-note="a" data-letter="K"></div>
+        <div class="piano__key" data-note="b" data-letter="L"></div>
+        <div class="piano__sharp">
+          <div class="piano__key sharp" data-note="c♯" data-letter="R"></div>
+          <div class="piano__key sharp" data-note="d♯" data-letter="T"></div>
+          <div class="piano__key sharp none"></div>
+          <div class="piano__key sharp" data-note="f♯" data-letter="U"></div>
+          <div class="piano__key sharp" data-note="g♯" data-letter="I"></div>
+          <div class="piano__key sharp" data-note="a♯" data-letter="O"></div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer__container">
+        <a
+          class="footer__github"
+          href="https://github.com/MoonHeiz"
+          target="_blank"
+          rel="noopener noreferrer"
+          >github</a
+        >
+        <a
+          class="footer__rss"
+          href="https://rs.school/js/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="footer__rss-year">'21</span>
+        </a>
+      </div>
+    </footer>
+    <aside class="fullscreen">
+      <button
+        class="fullscreen__button"
+        aria-label="open fullscreen & close fullscreen"
+      ></button>
+    </aside>
+    <script src="app.js"></script>
+  </body>
+</html>
